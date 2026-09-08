@@ -1,0 +1,36 @@
+[Desktop Entry]
+Type=Application
+Version=1.5
+Name=Google Messages
+GenericName=SMS and RCS
+Comment=Unofficial Google Messages client for KDE Plasma
+Exec=messages-kde %u
+Icon=org.juanton.messages-kde
+TryExec=messages-kde
+Terminal=false
+StartupNotify=true
+StartupWMClass=messages-kde
+SingleMainWindow=true
+Categories=Network;InstantMessaging;Chat;Qt;KDE;
+Keywords=messages;google;sms;rcs;mms;text;chat;android;
+MimeType=x-scheme-handler/sms;
+Actions=NewWindow;SignIn;Minimized;
+DBusActivatable=false
+X-GNOME-UsesNotifications=true
+X-KDE-Shortcuts=Meta+Shift+M
+X-KDE-FormFactor=desktop
+
+[Desktop Action NewWindow]
+Name=Open Messages
+Exec=messages-kde
+Icon=org.juanton.messages-kde
+
+[Desktop Action SignIn]
+Name=Sign in as juanton@wahcha.com
+Exec=messages-kde
+Icon=org.juanton.messages-kde
+
+[Desktop Action Minimized]
+Name=Start in system tray
+Exec=messages-kde --minimized
+Icon=org.juanton.messages-kde
