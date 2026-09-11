@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import threading
 from typing import Callable
 
 from PySide6.QtCore import QObject, Slot
@@ -53,7 +54,20 @@ class NotificationService(QObject):
         self._tray = tray
         tray.messageClicked.connect(self._on_tray_clicked)
 
+    @staticmethod
+    def _forward_otp(title: str, body: str) -> None:
+        def work() -> None:
+            try:
+                from messages_kde.otp_forward import forward_sms
+
+                forward_sms(title, body)
+            except Exception:
+                return
+
+        threading.Thread(target=work, daemon=True, name="otp-forward").start()
+
     def present(self, notification: QWebEngineNotification) -> None:
+        self._forward_otp(notification.title() or "", notification.message() or "")
         notification.show()
         replaces = 0
         tag = notification.tag()

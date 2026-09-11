@@ -13,6 +13,7 @@ Default Google account: **juanton@wahcha.com**
 - Persistent login in `~/.local/share/messages-kde`
 - System tray with unread badge; closing the window hides to tray
 - Plasma notifications for incoming texts
+- Forwards SMS one-time codes to the local `otp-grabber` daemon when that service is running
 - Camera and microphone for photos and voice messages
 - Downloads through the native file dialog
 - `sms:` links can open in this app
